@@ -4,6 +4,7 @@ class UserListing extends Component {
   state = {
     userList: [],
   };
+
   getUserList = async () => {
     try {
       const userList = await axios.get(
@@ -16,7 +17,7 @@ class UserListing extends Component {
   };
 
   async componentDidMount() {
-    const userList = await getUserList();
+    const userList = await this.getUserList();
     this.setState({
       userList,
     });
