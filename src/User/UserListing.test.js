@@ -1,10 +1,9 @@
 import React from "react";
 import { shallow } from "enzyme";
-
-jest.mock("../apiCalls");
-
 import UserListing from "./UserListing";
 import { findByAttr } from "../../test/testUtils";
+
+jest.mock("../apiCalls");
 
 import { UserListingApi as mockUserListingApi } from "../apiCalls";
 
