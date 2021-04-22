@@ -1,10 +1,10 @@
 import React from "react";
 import { mount, shallow } from "enzyme";
 import UserListing from "./UserListing";
-import { findByAttr } from "../../test/testUtils";
+import { findByAttr } from "../../../test/testUtils";
 
 jest.mock("../apiCall/__mocks__/userListing");
-import { userListingApi as mockUserListingApi } from "../apiCall/__mocks__/userListing";
+import { userListingApi as mockUserListingApi } from "../../apiCall/__mocks__/userListing";
 
 const setup = () => {
   return mount(<UserListing />);

@@ -3,8 +3,8 @@ import axios from "axios";
 export const userListingApi = async () => {
   try {
     let res = await axios.get("https://jsonplaceholder.typicode.com/users");
-    return res.data;
+    return { userData: res.data, success: true };
   } catch (e) {
-    console.log("error");
+    return { errorMessage: e.message, success: false };
   }
 };
