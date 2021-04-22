@@ -1,5 +1,5 @@
 import moxios from "moxios";
-import { UserListingApi } from "./userListing";
+import { userListingApi } from "./userListing";
 
 describe("user-data", () => {
   beforeEach(() => {
@@ -25,7 +25,7 @@ describe("user-data", () => {
         ],
       });
     });
-    userData = await UserListingApi();
+    userData = await userListingApi();
     return expect(userData).toStrictEqual([
       {
         username: "Bret",

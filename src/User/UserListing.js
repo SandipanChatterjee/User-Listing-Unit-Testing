@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { UserListingApi } from "../actions/userListing";
+import { userListingApi } from "../apiCall/userListing";
 class UserListing extends Component {
   state = {
     userList: [],
@@ -18,7 +18,7 @@ class UserListing extends Component {
   };*/
 
   componentDidMount() {
-    const userList = UserListingApi();
+    const userList = userListingApi();
     this.setState({
       userList,
     });
