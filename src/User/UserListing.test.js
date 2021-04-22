@@ -1,7 +1,12 @@
 import React from "react";
 import { shallow } from "enzyme";
+
+jest.mock("../apiCalls");
+
 import UserListing from "./UserListing";
 import { findByAttr } from "../../test/testUtils";
+
+import { UserListingApi as mockUserListingApi } from "../apiCalls";
 
 const setup = () => {
   return shallow(<UserListing />);
@@ -24,8 +29,9 @@ describe("User data not available", () => {
   });
 });
 
-/*test("render rows when data is available", () => {
-      const wrapper = setup();
-      const rows = findByAttr(wrapper, "user-rows");
-      expect(rows.length).toBeGreaterThan(0);
-    });*/
+describe("get user-data", () => {
+  beforeEach(() => {
+    mockUserListingApi.mockClear();
+  });
+  test("get user data on app mount", () => {});
+});

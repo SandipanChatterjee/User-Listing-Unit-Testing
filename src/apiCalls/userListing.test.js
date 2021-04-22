@@ -15,20 +15,24 @@ describe("user-data", () => {
       const request = moxios.requests.mostRecent();
       request.respondWith({
         status: 200,
-        response: {
-          username: "Bret",
-          email: "Sincere@april.biz",
-          phone: "1-770-736-8031 x56442",
-          website: "hildegard.org",
-        },
+        response: [
+          {
+            username: "Bret",
+            email: "Sincere@april.biz",
+            phone: "1-770-736-8031 x56442",
+            website: "hildegard.org",
+          },
+        ],
       });
     });
     userData = await UserListingApi();
-    return expect(userData).toStrictEqual({
-      username: "Bret",
-      email: "Sincere@april.biz",
-      phone: "1-770-736-8031 x56442",
-      website: "hildegard.org",
-    });
+    return expect(userData).toStrictEqual([
+      {
+        username: "Bret",
+        email: "Sincere@april.biz",
+        phone: "1-770-736-8031 x56442",
+        website: "hildegard.org",
+      },
+    ]);
   });
 });
