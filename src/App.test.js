@@ -7,6 +7,6 @@ import App from "./App";
   expect(linkElement).toBeInTheDocument();
 });*/
 
-jest.mock("./apiCalls");
+jest.mock("./actions");
 
 test("render without error", () => {});

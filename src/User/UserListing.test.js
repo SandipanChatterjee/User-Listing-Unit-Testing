@@ -1,14 +1,13 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { mount, shallow } from "enzyme";
 import UserListing from "./UserListing";
 import { findByAttr } from "../../test/testUtils";
 
-jest.mock("../apiCalls");
-
-import { UserListingApi as mockUserListingApi } from "../apiCalls";
+jest.mock("../actions/__mocks__/userListing");
+import { userListingApi as mockUserListingApi } from "../actions/__mocks__/userListing";
 
 const setup = () => {
-  return shallow(<UserListing />);
+  return mount(<UserListing />);
 };
 
 describe("User data not available", () => {
@@ -32,5 +31,8 @@ describe("get user-data", () => {
   beforeEach(() => {
     mockUserListingApi.mockClear();
   });
-  test("get user data on app mount", () => {});
+  test("get user data on app mount", () => {
+    const wrapper = setup();
+    expect(mockUserListingApi).toHaveBeenCalledTimes(1);
+  });
 });
