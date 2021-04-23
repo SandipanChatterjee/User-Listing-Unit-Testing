@@ -4,9 +4,13 @@ import { connect } from "react-redux";
 class UserDetails extends Component {
   render() {
     const { user } = this.props;
+    console.log("user##", user);
     return (
       <div>
-        <p>{user.id}</p>
+        <img src={user.avatar} width="100px" height="100px" />
+        <h3>
+          {user.first_name} {user.last_name}
+        </h3>
       </div>
     );
   }

@@ -14,6 +14,7 @@ export const userReducer = (state = initState, action) => {
       return {
         ...state,
         userData: action.userData,
+        error: null,
       };
     case FETCH_SINGLE_USERDATA_FAIL:
       return {

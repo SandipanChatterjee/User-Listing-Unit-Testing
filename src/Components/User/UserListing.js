@@ -35,13 +35,15 @@ class UserListing extends Component {
 
     return (
       <div data-test="component-user">
-        <table>
+        <table
+          style={{ marginLeft: "auto", marginRight: "auto", padding: "1rem" }}
+        >
           <thead>
             <tr>
-              <th>USER NAME</th>
+              <th>ID</th>
+              <th>FNAME</th>
+              <th>LNAME</th>
               <th>EMAIL</th>
-              <th>PHONE</th>
-              <th>WEBSITE</th>
             </tr>
           </thead>
           <tbody>
@@ -62,10 +64,10 @@ class UserListing extends Component {
                     key={ind}
                     onClick={() => this.props.getUserData(user.id)}
                   >
-                    <td>{user.username}</td>
+                    <td>{user.id}</td>
+                    <td>{user.first_name}</td>
+                    <td>{user.last_name}</td>
                     <td>{user.email}</td>
-                    <td>{user.phone}</td>
-                    <td>{user.website}</td>
                   </tr>
                 );
               })

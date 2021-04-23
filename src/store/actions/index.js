@@ -4,6 +4,8 @@ import {
   FETCH_SINGLE_USERDATA_FAIL,
 } from "./actionType";
 
+import { api } from "../../config/publicApi";
+
 const success = (payload) => {
   return {
     type: FETCH_SINGLE_USERDATA_SUCCESS,
@@ -21,8 +23,8 @@ const fail = (payload) => {
 export const fetchUserData = (id) => {
   return async (dispatch) => {
     try {
-      let res = axios.get(`https://jsonplaceholder.typicode.com/users/${id}`);
-      dispatch(success(res.data));
+      let res = await axios.get(`${api}/${id}`);
+      dispatch(success(res.data.data));
     } catch (e) {
       dispatch(fail(e.message));
     }
