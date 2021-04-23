@@ -62,7 +62,10 @@ class UserListing extends Component {
                     }}
                     data-test="user-rows"
                     key={ind}
-                    onClick={() => this.props.getUserData(user.id)}
+                    onClick={() => {
+                      localStorage.setItem("UserListing.userID", user.id);
+                      this.props.getUserData(user.id);
+                    }}
                   >
                     <td>{user.id}</td>
                     <td>{user.first_name}</td>
